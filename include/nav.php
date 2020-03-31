@@ -78,6 +78,7 @@
                     <div class="style_ilayda"><a href="<?php echo $actuel; ?>?style=index.css"></a></div>
                 </li>
                 <li><a href="catalogue.php">Films</a></li>
+                <li><a href="inscription.php">Inscription</a></li>
                 <li><a href="connexion.php">Connexion</a></li>
             </ul>
         </div>

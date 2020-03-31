@@ -48,16 +48,28 @@ include 'include/nav.php'; ?>
     <div id="container">
       
 
-        <form action="verifconn.php" method="POST">
-            <h2>Connexion</h2>
+        <form action="verif.php" method="POST">
+            <h2>Inscription</h2>
 
             <label><b>Nom d'utilisateur</b></label>
             <input class="login" type="text" placeholder="Nom d'utilisateur" name="pseudo" id="pseudo" required> <br>
 
+            <label><b>Adresse mail</b></label>
+            <input class="login" type="email" placeholder="adresse mail" name="adresse" id="adresse" required> <br>
+
             <label><b>Mot de passe</b></label>
             <input class="login"  type="password" placeholder="Mot de passe" name="motdepasse" id="motdepasse" required><br>
 
-            <input class="ok"type="submit" id='submit' value='LOGIN'> <br>
+            <label><b>Nom</b></label>
+            <input class="login"  type="text" placeholder="Nom" name="nom" id="nom" required><br>
+
+            <label><b>Prénom</b></label>
+            <input class="login"  type="text" placeholder="Prénom" name="prenom" id="prenom" required><br>
+
+            <label><b>Date de naissance</b></label>
+            <input class="login"  type="text" placeholder="YYYY-MM-DD" name="birthdate" id="birthdate" required><br>
+
+            <input class="ok"type="submit" id='submit' value='REGISTER'> <br>
 
 
             <?php
