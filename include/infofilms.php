@@ -9,7 +9,7 @@
 
     <div class="ronds-bis">
         <div class="ronds-ronds">
-            2h12
+            <?php echo $donnees['duree']; ?>
         </div>
         Durée
     </div>
@@ -25,7 +25,7 @@
 
     <div class="ronds-bis">
         <div class="ronds-ronds">
-            5 juin 2019
+            <?php echo $donnees['sortie']; ?>
         </div>
         Date de sortie
     </div>

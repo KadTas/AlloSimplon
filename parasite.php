@@ -1,6 +1,7 @@
 <?php
 header('Content-type: text/html; charset=utf-8');
 require_once 'styleswitcher.php';
+include ('connect.php');
 ?>
 
 
@@ -47,12 +48,17 @@ require_once 'styleswitcher.php';
 <body>
 
     <?php
+    $id = $_GET['id'];
+    $req= $bdd->prepare("SELECT * FROM Film WHERE id=$id");
+    $req->execute();
+    while($donnees = $req->fetch()) {
     include 'include/nav.php';
     include 'include/synopsis.php';
     include 'include/infofilms.php';
     include 'include/acteurs.php';
     include 'include/realba.php';
-    include 'include/footer.php';    
+    include 'include/footer.php'; 
+}   
     ?>
 </body>
 
