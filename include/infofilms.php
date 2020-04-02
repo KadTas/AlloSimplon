@@ -17,7 +17,7 @@
 
     <div class="ronds-bis">
         <div class="ronds-ronds">
-            4.5/5
+            <?php echo $donnees['note']?>/5
         </div>
         Note
     </div>

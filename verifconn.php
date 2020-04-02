@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 include 'connect.php';
  
 $req = $bdd->prepare('SELECT * FROM utilisateur WHERE pseudo = :pseudo AND motdepasse = :motdepasse');

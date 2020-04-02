@@ -19,9 +19,7 @@
             <div><?php echo $real['prenom'] . '&nbsp;' . $real['nom']   ?></div>
         </div>
         <div class="text-real">
-            Pour son film Parasite, il remporte la Palme d'or au festival de Cannes 2019, puis en 2020, le prix du
-            meilleur film en langue étrangère aux Golden Globes, quatre Oscars (meilleur scénario original, meilleur
-            film international, meilleur réalisateur, et meilleur film) et le César du meilleur film étranger.
+            <?php echo $real['bio'] ?>
         </div>
     </div> <?php } }?>
     <div class="ba-yt">
