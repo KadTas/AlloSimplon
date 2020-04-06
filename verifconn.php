@@ -11,13 +11,13 @@ $resultat = $req->fetch();
  
 if (!$resultat)
 {
-    echo 'Mauvais identifiant ou mot de passe !';
-    header("location:index.php");
+    header("Location:catalogue.php");
 }
 else
 {
     session_start();
-    $_SESSION['pseudo'] = $pseudo;
-    header("Location:index.php");
+    $_SESSION['pseudo'] = $resultat['pseudo'];
+    $_SESSION['id_type'] = $resultat['id_type'];
+    header("Location:index.php?login=ok");
 }
 ?>

@@ -2,8 +2,9 @@
 session_start();
 header('Content-type: text/html; charset=utf-8');
 require_once 'styleswitcher.php';
+include('connect.php');
 ?>
-
+<?php if ($_SESSION['id_type'] === "1") { ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,10 +65,35 @@ require_once 'styleswitcher.php';
 <body>
     <?php
     include 'include/nav.php';
-    include 'include/slider.php';
-    include 'include/affiche.php';
-    include 'include/parallax.php';
-    include 'include/tarifs.php';
+    ?>
+    <div id=container><table>
+    <tr>
+    <td class="column1">Pseudo</td>
+    <td class="column2">Mail</td>
+    <td class="column3">Mot de passe</td>
+    <td class="column3">Nom</td>
+    <td class="column3">Prénom</td>
+    <td class="column4">Modifier</td>
+    <td class="column5">Supprimer</td>
+    </tr>
+    <?php 
+    $req = $bdd->prepare('SELECT * FROM utilisateur');
+    $req->execute();
+    while ($resultat = $req->fetch()) {
+    ?>
+    <tr>
+    <td class="column1"><?php echo $resultat['pseudo'] ?></td>
+    <td class="column2"><?php echo $resultat['adresse'] ?></td>
+    <td class="column3"><?php echo $resultat['motdepasse'] ?></td>
+    <td class="column4"><?php echo $resultat['nom'] ?></td>
+    <td class="column5"><?php echo $resultat['prenom'] ?></td>
+    <td class="column6"><a href=>Modifier</a></td>
+    <td class="column7"><a href="delete.php?id=<?php echo $resultat['id']?>">Supprimer</a></td>
+    </tr> <?php } ?>
+    </table>
+    </div>
+    </div>
+    <?php
     include 'include/footer.php';
     ?>
 
@@ -108,3 +134,8 @@ require_once 'styleswitcher.php';
 </body>
 
 </html>
+    <?php }
+    else {
+        header('location:index.php');
+    }
+    ?>

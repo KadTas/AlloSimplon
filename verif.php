@@ -2,10 +2,6 @@
     include 'connect.php'
 ?>
 <?
-    echo $_POST['pseudo'];
-    echo $_POST['adresse'];
-    echo $_POST['motdepasse'];
-
     $stmt = $bdd->prepare('SELECT pseudo FROM utilisateur WHERE pseudo = :pseudo');
     $stmt->bindParam(':pseudo', $pseudo);
     $stmt->execute();
@@ -24,5 +20,6 @@
         ':birthdate' => $_POST['birthdate'],
         'id_type' => 3
     ));
+    header('location:index.php');
 }
 ?>

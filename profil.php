@@ -2,8 +2,9 @@
 session_start();
 header('Content-type: text/html; charset=utf-8');
 require_once 'styleswitcher.php';
+include(connect.php);
 ?>
-
+<?php if ($_SESSION['id_type'] === "3") { ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,10 +65,9 @@ require_once 'styleswitcher.php';
 <body>
     <?php
     include 'include/nav.php';
-    include 'include/slider.php';
-    include 'include/affiche.php';
-    include 'include/parallax.php';
-    include 'include/tarifs.php';
+    ?>
+    <div id=container>Bonjour <?php echo $_SESSION['pseudo'] ?>
+    <?php
     include 'include/footer.php';
     ?>
 
@@ -108,3 +108,8 @@ require_once 'styleswitcher.php';
 </body>
 
 </html>
+    <?php }
+    else {
+        header('location:index.php');
+    }
+    ?>

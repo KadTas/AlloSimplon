@@ -1,9 +1,9 @@
 <?php
+session_start();
 header('Content-type: text/html; charset=utf-8');
 require_once 'styleswitcher.php';
 ?>
-
-
+<?php if (!isset($_SESSION['id_type'])) { ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -90,3 +90,8 @@ include 'include/footer.php'; ?>
 
 </body>
 </html>
+<?php } 
+        else {
+            header('location:index.php');
+        }
+        ?>

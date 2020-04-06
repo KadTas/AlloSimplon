@@ -1170,6 +1170,7 @@ footer{
     margin-right:auto;
     background-color: black;
     padding-bottom:40px;
+    flex-direction: row;
 }
 
 .acteur{
@@ -1186,7 +1187,6 @@ footer{
 .acteur img{
     width:90px;
     margin-bottom:10px;
-    
 }
 
 /*REAL BA*/
