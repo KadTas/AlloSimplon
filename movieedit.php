@@ -67,11 +67,31 @@ include('connect.php');
     include 'include/nav.php';
     ?>
     <div id=container>
-    <p>Bonjour Mister Admin.</p>
-    <ul>
-    <li><a href=users.php>Utilisateurs</li>
-    <li><a href=movieedit.php>Films</li>
-    </ul>
+    <p>Gestion des films</p>
+    <form method="post">
+    <div>
+    <label for="modifilm">Nom du film :</label>
+<input list="films" id="modifilm" name="modifilm"/>
+<datalist id="films">
+<?php 
+$req = $bdd->prepare('SELECT * FROM Film');
+    $req->execute();
+    while ($resultat = $req->fetch()) { ?>
+    <option value="<?php echo $resultat['nom']?>">
+    <?php } ?>
+</datalist>
+</div><div>
+<label for="synops">Synopsis</label>
+<input id="synops" name="synops">
+</div>
+<div>
+<label for="rating">Note</label>
+<input id="rating" name="rating">
+</div>
+<div>
+<input type="submit" value="ajouter" action="addmovie.php"></div>
+<input type="submit" value="editer" action="editmovie.php"></div>
+</form>
     </div>
     <?php
     include 'include/footer.php';

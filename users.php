@@ -66,12 +66,32 @@ include('connect.php');
     <?php
     include 'include/nav.php';
     ?>
-    <div id=container>
-    <p>Bonjour Mister Admin.</p>
-    <ul>
-    <li><a href=users.php>Utilisateurs</li>
-    <li><a href=movieedit.php>Films</li>
-    </ul>
+    <div id=container><table class="table">
+    <table class="table">
+    <tr>
+    <td class="column1">Pseudo</td>
+    <td class="column2">Mail</td>
+    <td class="column3">Mot de passe</td>
+    <td class="column3">Nom</td>
+    <td class="column3">Prénom</td>
+    <td class="column4">Modifier</td>
+    <td class="column5">Supprimer</td>
+    </tr>
+    <?php 
+    $req = $bdd->prepare('SELECT * FROM utilisateur');
+    $req->execute();
+    while ($resultat = $req->fetch()) {
+    ?>
+    <tr>
+    <td class="column1"><?php echo $resultat['pseudo'] ?></td>
+    <td class="column2"><?php echo $resultat['adresse'] ?></td>
+    <td class="column3"><?php echo $resultat['motdepasse'] ?></td>
+    <td class="column4"><?php echo $resultat['nom'] ?></td>
+    <td class="column5"><?php echo $resultat['prenom'] ?></td>
+    <td class="column6"><a href="edit.php?id=<?php echo $resultat['id']?>">Modifier</a></td>
+    <td class="column7"><a href="delete.php?id=<?php echo $resultat['id']?>">Supprimer</a></td>
+    </tr> <?php } ?>
+    </table>
     </div>
     <?php
     include 'include/footer.php';
