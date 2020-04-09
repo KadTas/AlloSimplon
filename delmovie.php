@@ -66,32 +66,22 @@ include('connect.php');
     <?php
     include 'include/nav.php';
     ?>
-    <div id=container>
-    <p>Gestion des films</p>
-    <form method="post">
-    <div>
-    <label for="modifilm">Nom du film :</label>
-<input list="films" id="modifilm" name="modifilm"/>
-<datalist id="films">
-<?php 
-$req = $bdd->prepare('SELECT * FROM Film');
+    <div id=container><table class="table">
+    <table class="table">
+    <tr>
+    <td class="column1">Nom</td>
+    <td class="column5">Supprimer</td>
+    </tr>
+    <?php 
+    $req = $bdd->prepare('SELECT * FROM Film');
     $req->execute();
-    while ($resultat = $req->fetch()) { ?>
-    <option value="<?php echo $resultat['nom']?>">
-    <?php } ?>
-</datalist>
-</div><div>
-<label for="synops">Synopsis</label>
-<input id="synops" name="synops">
-</div>
-<div>
-<label for="rating">Note</label>
-<input id="rating" name="rating">
-</div>
-<div>
-<input type="submit" value="ajouter" action="addmovie.php"></div>
-<input type="submit" value="editer" action="editmovie.php"></div>
-</form>
+    while ($resultat = $req->fetch()) {
+    ?>
+    <tr>
+    <td class="column1"><?php echo $resultat['nom'] ?></td>
+    <td class="column7"><a href="delmoviedone.php?id=<?php echo $resultat['id']?>">Supprimer</a></td>
+    </tr> <?php } ?>
+    </table>
     </div>
     <?php
     include 'include/footer.php';

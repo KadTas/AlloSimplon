@@ -67,13 +67,36 @@ include('connect.php');
     include 'include/nav.php';
     ?>
     <div id=container>
-    <p>Bonjour Mister Admin.</p>
-    <ul>
-    <li><a href=users.php>Utilisateurs</a></li>
-    <li><a href=addmovie.php>Ajout de films</a></li>
-    <li><a href=editmovie.php>Modification de films</a></li>
-    <li><a href=delmovie.php>Suppression de films</a></li>
-    </ul>
+    <p>Ajout de films</p>
+    <form action="addmoviedone.php" method="POST" id=add>
+    <div>
+        <label for="nom">Nom du film :</label>
+        <input type="text" name="nom" id="nom" required>
+    </div>
+    <div>
+        <label for="synopsis">Synopsis :</label>
+        <input type="text" name="synopsis" id="synopsis" required>
+    </div>
+    <div>
+        <label for="sortie">Date de sortie :</label>
+        <input type="date" name="sortie" id="sortie" required>
+    </div>
+    <div>
+        <label for="trailer">Lien du trailer :</label>
+        <input type="text" name="trailer" id="trailer" required>
+    </div>
+    <div>
+        <label for="duree">Durée :</label>
+        <input type="time" name="duree" id="duree" required>
+    </div>
+    <div>
+        <label for="note">Note :</label>
+        <input type="number" min="0" max="5" name="note" id="note" required>
+    </div>
+    <div>
+        <input type="submit" value="ajouter" required>
+    </div>
+</form>
     </div>
     <?php
     include 'include/footer.php';

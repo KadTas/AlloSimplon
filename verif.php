@@ -8,6 +8,7 @@
 
     if($stmt->rowCount() > 0){
         echo "Stop right there, you criminal scum !";
+        exit;
     } else {
 
     $req= $bdd->prepare('INSERT INTO utilisateur (pseudo, adresse, motdepasse, id_type, nom, prenom, birthdate) VALUES (:pseudo, :adresse, :motdepasse, :id_type, :nom, :prenom, :birthdate)');

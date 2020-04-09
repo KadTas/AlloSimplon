@@ -66,14 +66,33 @@ include('connect.php');
     <?php
     include 'include/nav.php';
     ?>
-    <div id=container>
-    <p>Bonjour Mister Admin.</p>
-    <ul>
-    <li><a href=users.php>Utilisateurs</a></li>
-    <li><a href=addmovie.php>Ajout de films</a></li>
-    <li><a href=editmovie.php>Modification de films</a></li>
-    <li><a href=delmovie.php>Suppression de films</a></li>
-    </ul>
+    <div id=container><table class="table">
+    <table class="table">
+    <tr>
+    <td class="column1">Nom</td>
+    <td class="column2">Synopsis</td>
+    <td class="column3">Sortie</td>
+    <td class="column3">Affiche</td>
+    <td class="column3">Trailer</td>
+    <td class="column4">Durée</td>
+    <td class="column5">Note</td>
+    </tr>
+    <?php 
+    $req = $bdd->prepare('SELECT * FROM Film');
+    $req->execute();
+    while ($resultat = $req->fetch()) {
+    ?>
+    <tr>
+    <td class="column1"><?php echo $resultat['nom'] ?></td>
+    <td class="column2"><?php echo $resultat['synopsis'] ?></td>
+    <td class="column3"><?php echo $resultat['sortie'] ?></td>
+    <td class="column4"><?php echo $resultat['affiche'] ?></td>
+    <td class="column5"><?php echo $resultat['trailer'] ?></td>
+    <td class="column5"><?php echo $resultat['duree'] ?></td>
+    <td class="column5"><?php echo $resultat['note'] ?></td>
+    <td class="column6"><a href="editmovieform.php?id=<?php echo $resultat['id']?>">Modifier</a></td>
+    </tr> <?php } ?>
+    </table>
     </div>
     <?php
     include 'include/footer.php';
