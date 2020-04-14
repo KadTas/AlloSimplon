@@ -67,17 +67,34 @@ include('connect.php');
     include 'include/nav.php';
     ?>
     <div id=container>
-    <p>Bonjour Mister Admin.</p>
-    <ul>
-    <li><a href=users.php>Utilisateurs</a></li>
-    <li><a href=addmovie.php>Ajout de films</a></li>
-    <li><a href=addgenre.php>Ajout de genre</a></li>
-    <li><a href=addscreenshot.php>Ajout de screenshot</a></li>
-    <li><a href=addsreal.php>Ajout de réalisateur</a></li>
-    <li><a href=addactor.php>Ajout d'acteur</a></li>
-    <li><a href=editmovie.php>Modification de films</a></li>
-    <li><a href=delmovie.php>Suppression de films</a></li>
-    </ul>
+    <p>Ajout de genre'</p>
+    <form action="addgenredone.php" method="POST" id=add>
+    <div>
+        <select name="nom" id="nom" required>
+        <?php 
+    $req = $bdd->prepare('SELECT * FROM Film');
+    $req->execute();
+    while ($resultat = $req->fetch()) {
+    ?>
+        <option value="<?php echo $resultat['id'] ?>"><?php echo  $resultat['nom'] ?></option>
+    <?php } ?>
+    </select>
+    </div>
+    <div>
+        <select name="nomgenre" id="nomgenre" required>
+        <?php 
+    $reqreal = $bdd->prepare('SELECT * FROM Genre');
+    $reqreal->execute();
+    while ($resultatreal = $reqreal->fetch()) {
+    ?>
+        <option value="<?php echo $resultatreal['id_genre'] ?>"><?php echo  $resultatreal['nom_genre'] ?></option>
+    <?php } ?>
+    </select>
+    </div>
+    <div>
+        <input type="submit" value="ajouter" required>
+    </div>
+</form>
     </div>
     <?php
     include 'include/footer.php';
