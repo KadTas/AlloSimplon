@@ -15,7 +15,7 @@
 
     <div class="real">
         <div class="img-real">
-            <img src="./img/custom/<?php echo $real['photo'] ?>" alt="">
+            <img src="<?php echo $real['photo'] ?>" alt="">
             <div><?php echo $real['prenom'] . '&nbsp;' . $real['nom']   ?></div>
         </div>
         <div class="text-real">

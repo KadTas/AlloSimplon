@@ -12,7 +12,7 @@ $req->execute();
 //boucle pour tout afficher
 while($donnees = $req->fetch()) { ?> 
 
-    <a class="link-poster" href="paraite.php?id=<?php echo $donnees['id'] ?>"><img src="img/custom/<?php echo $donnees['affiche']; ?>" alt=""></a> 
+    <a class="link-poster" href="paraite.php?id=<?php echo $donnees['id'] ?>"><img src="<?php echo $donnees['affiche']; ?>" alt=""></a> 
 
 <?php } ?>
  </div>

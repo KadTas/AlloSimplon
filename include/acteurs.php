@@ -9,7 +9,7 @@
     $reqact->execute();
     while($donneesact = $reqact->fetch()) { ?>
     <div class="acteur">
-        <img class="img-acteur" src="./img/custom/<?php echo $donneesact['photo_acteur'] ?>" alt="">
+        <img class="img-acteur" src="<?php echo $donneesact['photo_acteur'] ?>" alt="">
         <div><?php echo $donneesact['prenom_acteur'] . '&nbsp;' . $donneesact['nom_acteur']?></div>
     </div>
     <?php } ?>

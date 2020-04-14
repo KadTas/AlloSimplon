@@ -41,9 +41,9 @@ include('connect.php')
 <body>
 
 <?php 
-include 'include/nav.php';
-$id = $_GET['id'] ?>
-<?php $req = $bdd->prepare("SELECT * FROM Film WHERE id='$id'");
+include 'include/nav.php'; 
+$id = $_GET['id']?>
+<?php $req = $bdd->prepare("SELECT * FROM utilisateur WHERE id='$id'");
     $req->execute();
     $resultat = $req->fetch()
     ?>
@@ -53,29 +53,26 @@ $id = $_GET['id'] ?>
     <div id="container">
       
 
-        <form action="editmoviedone.php?id=<?php echo $id ?>" method="POST">
-            <h2>Modifier le film :</h2>
+        <form action="edituserdone.php?id=<?php echo $_GET['id']?>" method="POST">
+            <h2>Modifier l'utilisateur :</h2>
 
-            <label><b>Nom du film :</b></label>
-            <input class="login" type="text" value="<?php echo $resultat['nom'] ?>" name="nom" id="nom" required> <br>
+            <label><b>Pseudo :</b></label>
+            <input class="login" type="text" value="<?php echo $resultat['pseudo'] ?>" name="pseudo" id="pseudo" required> <br>
 
-            <label><b>Synopsis :</b></label>
-            <input class="login" type="text" value="<?php echo $resultat['synopsis'] ?>" name="synopsis" id="synopsis" required> <br>
+            <label><b>Mot de passe :</b></label>
+            <input class="login" type="text" value="<?php echo $resultat['motdepasse'] ?>" name="motdepasse" id="motdepasse" required> <br>
 
-            <label><b>Sortie :</b></label>
-            <input class="login"  type="date" value="<?php echo $resultat['sortie'] ?>" name="sortie" id="sortie" required><br>
+            <label><b>Nom :</b></label>
+            <input class="login"  type="text" value="<?php echo $resultat['nom'] ?>" name="nom" id="nom" required><br>
 
-            <label><b>Affiche :</b></label>
-            <input class="login"  type="text" value="<?php echo $resultat['affiche'] ?>" name="affiche" id="affiche" required><br>
+            <label><b>Prénom :</b></label>
+            <input class="login"  type="text" value="<?php echo $resultat['prenom'] ?>" name="prenom" id="prenom" required><br>
 
-            <label><b>Trailer :</b></label>
-            <input class="login"  type="text" value="<?php echo $resultat['trailer'] ?>" name="trailer" id="trailer" required><br>
+            <label><b>Mail :</b></label>
+            <input class="login"  type="text" value="<?php echo $resultat['adresse'] ?>" name="adresse" id="adresse" required><br>
 
-            <label><b>Durée :</b></label>
-            <input class="login"  type="time" value="<?php echo $resultat['duree'] ?>" name="duree" id="duree" required><br>
-
-            <label><b>Note :</b></label>
-            <input class="login"  type="text" value="<?php echo $resultat['note'] ?>" name="note" id="note" required><br>
+            <label><b>Date de naissance :</b></label>
+            <input class="login"  type="date" value="<?php echo $resultat['birthdate'] ?>" name="birthdate" id="birthdate" required><br>
 
             <input class="ok"type="submit" id='submit' value='Modifier'> <br>
 

@@ -10,7 +10,7 @@ $req->execute();
 while($donnees = $req->fetch()) { ?>
             <a href="parasite.php?id=<?php echo $donnees['id']?>" class="versfilm"> 
             <div class="cardaxel">
-                <img class="poster-img" src="./img/custom/<?php echo $donnees['affiche']?>" alt="">
+                <img class="poster-img" src="<?php echo $donnees['affiche']?>" alt="">
                 <div class="titrefilm"><?php echo $donnees['nom'] ?></div>
                 <div class="infoaxel">
                     <div class="textaxel">

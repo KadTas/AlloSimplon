@@ -18,6 +18,7 @@ else
     session_start();
     $_SESSION['pseudo'] = $resultat['pseudo'];
     $_SESSION['id_type'] = $resultat['id_type'];
+    $_SESSION['id'] = $resultat['id'];
     header("Location:index.php?login=ok");
 }
 ?>

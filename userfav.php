@@ -4,7 +4,7 @@ header('Content-type: text/html; charset=utf-8');
 require_once 'styleswitcher.php';
 include('connect.php');
 ?>
-<?php if ($_SESSION['id_type'] === "1") { ?>
+<?php if ($_SESSION['id_type'] === "3") { ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,41 +66,22 @@ include('connect.php');
     <?php
     include 'include/nav.php';
     ?>
-    <div id=container>
-    <p>Ajout de films</p>
-    <form action="addmoviedone.php" method="POST" id=add>
-    <div>
-        <label for="nom">Nom du film :</label>
-        <input type="text" name="nom" id="nom" required>
-    </div>
-    <div>
-        <label for="synopsis">Synopsis :</label>
-        <input type="text" name="synopsis" id="synopsis" required>
-    </div>
-    <div>
-        <label for="sortie">Date de sortie :</label>
-        <input type="date" name="sortie" id="sortie" required>
-    </div>
-    <div>
-        <label for="trailer">Lien du trailer :</label>
-        <input type="text" name="trailer" id="trailer" required>
-    </div>
-    <div>
-        <label for="duree">Durée :</label>
-        <input type="time" name="duree" id="duree" required>
-    </div>
-    <div>
-        <label for="affiche">URL de l'affiche :</label>
-        <input type="text" name="affiche" id="affiche" required>
-    </div>
-    <div>
-        <label for="note">Note :</label>
-        <input type="number" min="0" max="5" name="note" id="note" required>
-    </div>
-    <div>
-        <input type="submit" value="ajouter" required>
-    </div>
-</form>
+    <div id=container><table class="table">
+    <table class="table">
+    <tr>
+    <td class="column1">Nom</td>
+    <td class="column5">Retirer</td>
+    </tr>
+    <?php 
+    $req = $bdd->prepare('SELECT * FROM favoris');
+    $req->execute();
+    while ($resultat = $req->fetch()) {
+    ?>
+     <tr>
+    <td class="column1"><?php echo $resultatfilm['nom'] ?></td>
+    <td class="column7"><a href="delfavdone.php?id=<?php echo $resultat['id']?>">Retirer</a></td>
+    </tr> <?php } ?>
+    </table>
     </div>
     <?php
     include 'include/footer.php';

@@ -66,7 +66,9 @@ include(connect.php);
     <?php
     include 'include/nav.php';
     ?>
-    <div id=container>Bonjour <?php echo $_SESSION['pseudo'] ?>
+    <div id=container><div>Bonjour <?php echo $_SESSION['pseudo'] ?></div>
+    <a href="userfav.php">Mes favoris</a></div>
+
     <?php
     include 'include/footer.php';
     ?>

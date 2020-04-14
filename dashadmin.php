@@ -71,6 +71,9 @@ include('connect.php');
     <ul>
     <li><a href=users.php>Utilisateurs</a></li>
     <li><a href=addmovie.php>Ajout de films</a></li>
+    <li><a href=addscreenshot.php>Ajout de screenshot</a></li>
+    <li><a href=addsreal.php>Ajout de réalisateur</a></li>
+    <li><a href=addactor.php>Ajout d'acteur</a></li>
     <li><a href=editmovie.php>Modification de films</a></li>
     <li><a href=delmovie.php>Suppression de films</a></li>
     </ul>

@@ -67,35 +67,29 @@ include('connect.php');
     include 'include/nav.php';
     ?>
     <div id=container>
-    <p>Ajout de films</p>
-    <form action="addmoviedone.php" method="POST" id=add>
+    <p>Ajout d'acteur'</p>
+    <form action="addactordone.php" method="POST" id=add>
     <div>
-        <label for="nom">Nom du film :</label>
-        <input type="text" name="nom" id="nom" required>
+        <select name="nom" id="nom" required>
+        <?php 
+    $req = $bdd->prepare('SELECT * FROM Film');
+    $req->execute();
+    while ($resultat = $req->fetch()) {
+    ?>
+        <option value="<?php echo $resultat['id'] ?>"><?php echo  $resultat['nom'] ?></option>
+    <?php } ?>
+    </select>
     </div>
     <div>
-        <label for="synopsis">Synopsis :</label>
-        <input type="text" name="synopsis" id="synopsis" required>
-    </div>
-    <div>
-        <label for="sortie">Date de sortie :</label>
-        <input type="date" name="sortie" id="sortie" required>
-    </div>
-    <div>
-        <label for="trailer">Lien du trailer :</label>
-        <input type="text" name="trailer" id="trailer" required>
-    </div>
-    <div>
-        <label for="duree">Durée :</label>
-        <input type="time" name="duree" id="duree" required>
-    </div>
-    <div>
-        <label for="affiche">URL de l'affiche :</label>
-        <input type="text" name="affiche" id="affiche" required>
-    </div>
-    <div>
-        <label for="note">Note :</label>
-        <input type="number" min="0" max="5" name="note" id="note" required>
+        <select name="nomacteur" id="nomacteur" required>
+        <?php 
+    $reqreal = $bdd->prepare('SELECT * FROM acteur');
+    $reqreal->execute();
+    while ($resultatreal = $reqreal->fetch()) {
+    ?>
+        <option value="<?php echo $resultatreal['id'] ?>"><?php echo  $resultatreal['nom_acteur'] ?></option>
+    <?php } ?>
+    </select>
     </div>
     <div>
         <input type="submit" value="ajouter" required>
