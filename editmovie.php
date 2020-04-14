@@ -66,7 +66,7 @@ include('connect.php');
     <?php
     include 'include/nav.php';
     ?>
-    <div id=container><table class="table">
+    <div id=container>
     <table class="table">
     <tr>
     <td class="column1">Nom</td>
